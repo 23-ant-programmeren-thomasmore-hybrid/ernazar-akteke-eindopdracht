@@ -7,6 +7,15 @@ import sportkampenImg from "@/public/sportkampen.png";
 import sportkampenJavaImg from "@/public/sportkampenJava.png";
 import zuulImg from "@/public/zuul.png";
 
+export const profile = {
+  name: "Ernazar Akteke",
+  age: 23,
+  focus: "Java",
+  hobby: "Clarinet",
+  sports: ["basketball", "MMA"],
+  projectsCount: 4,
+};
+
 export const links = [
   {
     name: "Home",
