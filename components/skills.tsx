@@ -7,7 +7,7 @@ import { useSectionInView } from "@/lib/hooks";
 
 import { motion } from "framer-motion";
 
-const fadeInAnimationVariants = {
+/* const fadeInAnimationVariants = {
   initial: {
     opacity: 0,
     y: 100,
@@ -19,6 +19,20 @@ const fadeInAnimationVariants = {
       delay: 0.05 * index,
     },
   }),
+}; */
+
+const flipAnimationVariants = {
+  initial: (index: number) => ({
+    x: index % 2 === 0 ? -100 : 100,
+    opacity: 0,
+  }),
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
 };
 
 export default function Skills() {
@@ -34,11 +48,12 @@ export default function Skills() {
       <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
         {skillsData.map((skill, index) => (
           <motion.li
-            className="bg-white borderBlack rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80"
+            className="bg-white borderBlack rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80 "
             key={index}
-            variants={fadeInAnimationVariants}
+            variants={flipAnimationVariants}
             initial="initial"
             whileInView="animate"
+            whileHover={{ scale: 3.0 }}
             viewport={{
               once: true,
             }}
